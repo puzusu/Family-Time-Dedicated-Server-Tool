@@ -29,39 +29,5 @@ Step-by-step with pictures of every button: [docs/QUICK_START.md](docs/QUICK_STA
 - Dedicated server: the same game exe running headless, plus a supervisor (console launcher or the GUI).
 - Optional **relay** for hosts whose connection can't be opened directly (CGNAT etc.): [docs/RELAY_SETUP.md](docs/RELAY_SETUP.md).
 
-## Repository layout
-
-| Folder | What |
-|---|---|
-| `src/FamilyTimeMP` | the mod (patched into the game's `Assembly-CSharp.dll` by a Mono.Cecil weaver) |
-| `src/Shared` | protocol shared by mod, server and tools |
-| `src/ServerLauncher` | dedicated-server supervisor (console) |
-| `src/Manager` | `FamilyTimeMP.exe`, the click-and-play window (WinForms, built from the UI mockups in `src/Manager/Assets`) |
-| `src/Relay`, `src/RelayCore` | the relay server and the host-side agent |
-| `tools/Patcher` | the weaver / verifier |
-| `tools/*.ps1` | build, packaging and test scripts (bot-driven end-to-end tests) |
-| `docs/` | quick start, relay setup, design and protocol notes |
-
-## Build from source
-
-Requirements: Windows 10/11, .NET 8 SDK, a DX12 GPU (to run the tests), and **your own copy of Family Time b108**.
-
-1. Copy your game folder to `game\` in the repo root (the folder that contains `FamilyTime.exe`). It is git-ignored.
-2. `powershell -File tools\build_modded.ps1` builds the mod and a patched copy in `game_modded\`.
-3. `powershell -File tools\package_dist.ps1` builds everything and writes the single-file `dist\FamilyTimeMP.exe`
-   (the other files go to `dist_extra\`).
-4. The player-avatar files (`samples\peasant_avatar.glb/.cfg`) are not in the repo (they contain third-party animation data).
-   Without them the package script fails at the copy step: put your own `.glb` there (see [docs/CUSTOM_AVATARS.md](docs/CUSTOM_AVATARS.md)),
-   or remove those two lines from `tools\package_dist.ps1`.
-5. Optional: create `dist_src\relay.json` (`{"Host":"...","Port":7700,"Key":"..."}`) before packaging to embed a relay for your community.
-
-Tests (examples): `tools\run_mp_test.ps1`, `tools\test_relay.ps1`, `tools\test_manager_ui.ps1`. They start the real game headless and need the `game_modded\` copy.
-
-## Third-party
-
-- [Mono.Cecil](https://github.com/jbevain/cecil) (MIT) is used by the patcher.
-- Unity and Family Time belong to their respective owners; no game assets are distributed here.
-
-## Licence
 
 [MIT](LICENSE) for this project's code.
