@@ -27,8 +27,6 @@ Needs: **Family Time Ep. 3, build b108, Windows 10/11, a DirectX 12 graphics car
 **F10** connect / disconnect, **T** chat. The night starts when everybody is in bed (the host can skip it). Disconnecting saves your colony on the server.
 
 ---
-### Advanced: without the program
-The old route still works: `setup_server.bat`, `start_server.bat`, `install_client_mod.bat`, `FamilyTimeServer.exe` (console), see `README.md`.
 
 ## Updating to a newer version
 
