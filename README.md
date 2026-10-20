@@ -1,7 +1,8 @@
-# Family Time Multiplayer
+<img width="1300" height="372" alt="Home-Sweet-Home-banner-1300x372" src="https://github.com/user-attachments/assets/e05bd307-10a7-4d61-8656-77e2d7048f2d" />
 
 Private co-op for **Family Time Ep. 3 (build b108, Windows DX12)**: everyone runs their own colony (their own Wolf Mama and pups),
 a server holds the shared world, and the night starts when everybody has put their pups to bed.
+<img width="1536" height="1024" alt="2" src="https://github.com/user-attachments/assets/e6960bf4-adb7-4531-beaa-a418e25658d1" />
 
 *Developed by Puzusu for the Family Time community, with much love.*
 
